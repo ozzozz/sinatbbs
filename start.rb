@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
-require 'model/comment.rb'
+require 'sass'
+require './model/comment.rb'
 
 helpers do
   include Rack::Utils; alias_method :h, :escape_html
@@ -12,7 +13,7 @@ get '/style.css' do
 end
 
 get '/' do
-  @comments = Comments.order_by(:posted_date.desc)
+  @comments = Comments.order(:posted_date).reverse
   haml :index
 end
 

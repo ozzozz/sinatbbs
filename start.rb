@@ -13,12 +13,12 @@ get '/style.css' do
 end
 
 get '/' do
-  @comments = Comments.order(:posted_date).reverse
+  @comments = Comment.order(:posted_date).reverse
   haml :index
 end
 
 put '/comment' do
-  Comments.create({
+  Comment.create({
     :name => request[:name],
     :title => request[:title],
     :message => request[:message],

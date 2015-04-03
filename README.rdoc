@@ -1,18 +1,37 @@
 = SinatBBS
 
 Sinatraで作った掲示板アプリケーションです。
+MySQL DBを用いる動作に対応しています。
 
 == 依存ライブラリ
 
 * Sinatra
 * Haml
-* Sequel
-* sqlite3-ruby
+* ActiveRecord
+* sqlite3 (開発環境用)
+* mysql2 (本番環境用)
 
-== 起動方法
+== 手動での起動方法(sqlite3使用)
 
-  $ sudo gem install sinatra haml sequel sqlite3-ruby
+  $ gem install bundler
+  $ bundle install
   $ ruby start.rb
 
-http://localhost:4567/
+→ http://localhost:4567/ にアクセス
 
+== 手動での起動方法(MySQL使用)
+
+  $ gem install bundler
+  $ bundle install
+  $ RACK_ENV=production DATABASE_URL=mysql://user:passwd@host:port/dbname ruby start.rb
+
+→ http://localhost:4567/ にアクセス
+
+== Cloud Foundry上での起動方法(MySQL使用)
+
+  $ cf create-service mysql default bbsdb
+  $ cf push bbs --no-start
+  $ cf bind-service bbs bbsdb
+  $ cf start bbs
+
+→ cf startコマンド完了時のメッセージにあるURLにアクセス

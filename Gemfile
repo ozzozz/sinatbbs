@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-ruby '1.9.3'
+ruby '2.1.7'
 
 gem "sinatra"
 gem "haml"
@@ -9,6 +9,8 @@ gem "activerecord"
 
 group :development, :test do
   gem "sqlite3"
+  gem 'rack-test'
+  gem "rspec"
 end
 
 group :production do

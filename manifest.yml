@@ -1,0 +1,4 @@
+---
+applications:
+- name: sinatbbs
+  memory: 128M

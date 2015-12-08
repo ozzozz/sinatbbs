@@ -3,3 +3,6 @@ applications:
 - name: demobbs
   memory: 128M
   no-route: true
+  env:
+    RACK_ENV: test
+    BUNDLE_WITHOUT: production

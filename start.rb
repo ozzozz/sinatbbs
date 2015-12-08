@@ -14,7 +14,7 @@ end
 
 get '/' do
   @comments = Comment.order(:posted_date).reverse
-  ###haml :index
+  haml :index
 end
 
 put '/comment' do

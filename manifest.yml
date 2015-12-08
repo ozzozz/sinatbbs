@@ -1,4 +1,5 @@
 ---
 applications:
-- name: sinatbbs
+- name: demobbs
   memory: 128M
+  no-route: true
